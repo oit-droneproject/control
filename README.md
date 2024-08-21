@@ -26,7 +26,7 @@ tello.end()     #通信終了
 
 
 ## Getter
-### tello_sample07.py
+### tello_sample02.py
 このコードは，Telloの状態を知ることができるコードです．
 バッテリーの残量を知ることができるメソッドもあります．
 状態を知ることができる代表的なメソッドだけを記載します．
@@ -39,9 +39,9 @@ import time
 tello = Tello()
 
 tello.connect()
+print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
 
-print(f"Battery: {tello.get_battery()}%")
 print(f"flight_time:{tello.get_flight_time()}s")
 print(f"Tof:{tello.get_distance_tof()}cm")
 print(f"current_state:{tello.get_current_state()}")
@@ -51,7 +51,7 @@ tello.end()
 ```
 
 ## 上昇と下降
-### tello_sample02.py
+### tello_sample03.py
 以下のコードはTelloを上昇と下降させるためのコードです．それぞれメソッドの引数はセンチメートルです．
 #### move_up(self, x),move_down(self, x)
 $20 \leq  x \leq 500$
@@ -61,6 +61,7 @@ from djitellopy import Tello
 tello = Tello()
 
 tello.connect()
+print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
 
 tello.move_up(50)        #50cm上昇
@@ -72,7 +73,7 @@ tello.end()
 
 
 ##  前進，後進，左右移動
-### tello_sample03.py
+### tello_sample04.py
 次のコードは，Telloを前進，後進，左，右に移動させるためのコードです．それぞれのメソッドの引数はセンチメートルです．
 それぞれのメソッドを使ってTelloの動きを確認しましょう．
 #### move_forward(self, x),move_back(self, x),move_left(self, x),move_right(self, x)
@@ -83,9 +84,9 @@ from djitellopy import Tello
 tello = Tello()
 
 tello.connect()
+print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
 
-tello.move_up(50)      #50cm 上昇
 tello.move_left(50)    #50cm 左に並行移動
 tello.move_right(50)   #50cm 右に並行移動
 tello.move_forward(50) #50cm 前進
@@ -96,7 +97,7 @@ tello.end()
 ```
 
 ## 回転
-###  tello_sample04.py
+###  tello_sample05.py
 次のコードは，Telloを回転させるためのコードです．回転させるためには，Flip を使用する必要があります．
 それぞれのメソッドを使ってTelloの動きを確認しましょう．特にTelloが不安定のときは命令が実行できないときがあります．
 以下のソースコードでは，バク転のみを有効にしてあります．
@@ -108,7 +109,9 @@ from djitellopy import Tello
 tello = Tello()
 
 tello.connect()
+print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
+
 
 tello.flip_back()
 #tello.flip_forward()
@@ -121,7 +124,7 @@ tello.land()
 tello.end()
 ```
 ## 旋回
-### tello_sample05.py
+### tello_sample06.py
 次のコードはTelloを旋回させるためのコードである．rotate_clockwiseは時計回りにTelloを旋回させるメソッドです．
 メソッドの引数は角度を示す．
 それぞれのメソッドを使ってTelloの動きを確認しましょう．
@@ -134,7 +137,9 @@ import time
 tello = Tello()
 
 tello.connect()
+print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
+
 
 tello.rotate_clockwise(90)          #時計回りに90度
 tello.rotate_counter_clockwise(90)  #反時計回りに90度
