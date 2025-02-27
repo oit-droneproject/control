@@ -98,7 +98,7 @@ tello.end()
 
 
 ## 旋回
-### tello_sample06.py
+### tello_sample05.py
 次のコードはTelloを旋回させるためのコードである．rotate_clockwiseは時計回りにTelloを旋回させるメソッドです．
 メソッドの引数は角度を示す．
 それぞれのメソッドを使ってTelloの動きを確認しましょう．
@@ -128,10 +128,10 @@ tello.end()
 次のコードはTelloを上下左右旋回させるためのコードである．それぞれの引数はスピードを表す。
 それぞれのメソッドを使ってTelloの動きを確認しましょう．
 #### send_rc_control(left_right_velocity, forward_backward_velocity, up_down_velocity, yaw_velocity)
- $-100 \leq  x \leq 100$
- $-100 \leq  x \leq 100$
- $-100 \leq  x \leq 100$
- $-100 \leq  x \leq 100$
+ $-100 \leq  left_right_velocity \leq 100$
+ $-100 \leq  forward_backward_velocity \leq 100$
+ $-100 \leq  up_down_velocity \leq 100$
+ $-100 \leq  yaw_velocity \leq 100$
 ```python
 from djitellopy import Tello
 import time
@@ -143,8 +143,8 @@ print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
 
 
-tello.rotate_clockwise(90)          #時計回りに90度
-tello.rotate_counter_clockwise(90)  #反時計回りに90度
+tello.send_rc_control(20,20,20,20)
+tello.send_rc_control(-20,-20,-20,-20)
 
 tello.land()
 tello.end()
