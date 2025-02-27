@@ -128,8 +128,8 @@ tello.end()
 次のコードはTelloを上下左右旋回させるためのコードである．それぞれの引数はスピードを表す。
 それぞれのメソッドを使ってTelloの動きを確認しましょう．
 #### send_rc_control(left_right_velocity, forward_backward_velocity, up_down_velocity, yaw_velocity)
- $-100 \leq  left_right_velocity \leq 100$　(left/right)
- $-100 \leq  forward_backward_velocity \leq 100$
+ $-100 \leq  left_right_velocity \leq 100$　(left/right)<br>
+ $-100 \leq  forward_backward_velocity \leq 100$ (forward/backward)<br>
  $-100 \leq  up_down_velocity \leq 100$
  $-100 \leq  yaw_velocity \leq 100$
 ```python
