@@ -96,15 +96,17 @@ tello.land()
 tello.end()
 ```
 
-## 回転
-###  tello_sample05.py
-次のコードは，Telloを回転させるためのコードです．回転させるためには，Flip を使用する必要があります．
-それぞれのメソッドを使ってTelloの動きを確認しましょう．特にTelloが不安定のときは命令が実行できないときがあります．
-以下のソースコードでは，バク転のみを有効にしてあります．
-#### flip(self, direction)　or flip_x (self)
-Telloが空中で不安定なときはコマンドが実行されない場合があります．
+
+## 旋回
+### tello_sample06.py
+次のコードはTelloを旋回させるためのコードである．rotate_clockwiseは時計回りにTelloを旋回させるメソッドです．
+メソッドの引数は角度を示す．
+それぞれのメソッドを使ってTelloの動きを確認しましょう．
+#### rotate_clockwise(self, x)
+ $1 \leq  x \leq 360$
 ```python
 from djitellopy import Tello
+import time
 
 tello = Tello()
 
@@ -113,23 +115,23 @@ print(f"Battery: {tello.get_battery()}%")
 tello.takeoff()
 
 
-tello.flip_back()
-#tello.flip_forward()
-#tello.flip_forward()
-#tello.flip_left()
-#tello.flip_right()
-#tello.flip("f")
+tello.rotate_clockwise(90)          #時計回りに90度
+tello.rotate_counter_clockwise(90)  #反時計回りに90度
 
 tello.land()
 tello.end()
 ```
-## 旋回
+
+
+## ラジオコントロール
 ### tello_sample06.py
-次のコードはTelloを旋回させるためのコードである．rotate_clockwiseは時計回りにTelloを旋回させるメソッドです．
-メソッドの引数は角度を示す．
+次のコードはTelloを上下左右旋回させるためのコードである．それぞれの引数はスピードを表す。
 それぞれのメソッドを使ってTelloの動きを確認しましょう．
-#### rotate_clockwise(self, x)
- $1 \leq  x \leq 360$
+#### send_rc_control(left_right_velocity, forward_backward_velocity, up_down_velocity, yaw_velocity)
+ $-100 \leq  x \leq 100$
+ $-100 \leq  x \leq 100$
+ $-100 \leq  x \leq 100$
+ $-100 \leq  x \leq 100$
 ```python
 from djitellopy import Tello
 import time
